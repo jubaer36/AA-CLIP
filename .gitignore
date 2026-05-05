@@ -8,9 +8,11 @@ after-rebuttal/
 exp/
 reproduce/
 rebuttal/
+dataset/metadata/*
 sup/
 visualize/
 */*.pt
+model/bpe_simple_vocab_16e6.txt
 
 *.npy
 

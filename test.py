@@ -113,7 +113,7 @@ def main():
     # testing
     parser.add_argument("--dataset", type=str, default="MVTec")
     parser.add_argument("--shot", type=int, default=4)
-    parser.add_argument("--batch_size", type=int, default=32)
+    parser.add_argument("--batch_size", type=int, default=8)
     # exp
     parser.add_argument("--seed", type=int, default=111)
     parser.add_argument("--save_path", type=str, default="ckpt/baseline")
@@ -244,8 +244,10 @@ def main():
                 domain=DOMAINS[args.dataset],
             )
             df.loc[len(df)] = Series(class_result_dict)
-        df.loc[len(df)] = df.mean()
-        df.loc[len(df) - 1]["class name"] = "Average"
+        metric_columns = df.columns.drop("class name")
+        average_row = df[metric_columns].astype(float).mean()
+        average_row["class name"] = "Average"
+        df.loc[len(df)] = average_row
         logger.info("final results:\n%s", df.to_string(index=False, justify="center"))
 
 

@@ -1,16 +1,29 @@
-BASE_PATH = "/data/wenxinma"
+import os
+
+
+BASE_PATH = os.environ.get(
+    "AA_CLIP_DATA_ROOT", "/mnt/Work/ML/Code/Anomaly Detection/Datasets"
+)
 DATA_PATH = {
-    "Brain": f"{BASE_PATH}/data/MedAD/Brain_AD",
-    "Liver": f"{BASE_PATH}/data/MedAD/Liver_AD",
-    "Retina": f"{BASE_PATH}/data/MedAD/Retina_RESC_AD",
-    "Colon_clinicDB": f"{BASE_PATH}/data/Colon/CVC-ClinicDB",
-    "Colon_colonDB": f"{BASE_PATH}/data/Colon/CVC-ColonDB",
-    "Colon_cvc300": f"{BASE_PATH}/data/Colon/CVC-300",
-    "Colon_Kvasir": f"{BASE_PATH}/data/Colon/Kvasir",
-    "BTAD": f"{BASE_PATH}/data/BTech_Dataset_transformed",
-    "MPDD": f"{BASE_PATH}/data/MPDD",
-    "MVTec": f"{BASE_PATH}/data/mvtec_ad",
-    "VisA": f"{BASE_PATH}/data/VisA_20220922",
+    "Brain": os.environ.get("AA_CLIP_BRAIN_PATH", f"{BASE_PATH}/MedAD/Brain_AD"),
+    "Liver": os.environ.get("AA_CLIP_LIVER_PATH", f"{BASE_PATH}/MedAD/Liver_AD"),
+    "Retina": os.environ.get("AA_CLIP_RETINA_PATH", f"{BASE_PATH}/MedAD/Retina_RESC_AD"),
+    "Colon_clinicDB": os.environ.get(
+        "AA_CLIP_COLON_CLINICDB_PATH", f"{BASE_PATH}/Colon/CVC-ClinicDB"
+    ),
+    "Colon_colonDB": os.environ.get(
+        "AA_CLIP_COLON_COLONDB_PATH", f"{BASE_PATH}/Colon/CVC-ColonDB"
+    ),
+    "Colon_cvc300": os.environ.get(
+        "AA_CLIP_COLON_CVC300_PATH", f"{BASE_PATH}/Colon/CVC-300"
+    ),
+    "Colon_Kvasir": os.environ.get(
+        "AA_CLIP_COLON_KVASIR_PATH", f"{BASE_PATH}/Colon/Kvasir"
+    ),
+    "BTAD": os.environ.get("AA_CLIP_BTAD_PATH", f"{BASE_PATH}/BTech_Dataset_transformed"),
+    "MPDD": os.environ.get("AA_CLIP_MPDD_PATH", f"{BASE_PATH}/MPDD"),
+    "MVTec": os.environ.get("AA_CLIP_MVTEC_PATH", f"{BASE_PATH}/mvtec_anomaly_detection"),
+    "VisA": os.environ.get("AA_CLIP_VISA_PATH", f"{BASE_PATH}/VisA_20220922"),
 }
 
 CLASS_NAMES = {
