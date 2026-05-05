@@ -2,7 +2,7 @@ import os
 
 
 BASE_PATH = os.environ.get(
-    "AA_CLIP_DATA_ROOT", "/mnt/Work/ML/Code/Anomaly Detection/Datasets"
+    "AA_CLIP_DATA_ROOT", "/mnt/Work/ML/Code/Anomaly Detection/AA-CLIP/dataset/metadata"
 )
 DATA_PATH = {
     "Brain": os.environ.get("AA_CLIP_BRAIN_PATH", f"{BASE_PATH}/MedAD/Brain_AD"),
@@ -23,6 +23,7 @@ DATA_PATH = {
     "BTAD": os.environ.get("AA_CLIP_BTAD_PATH", f"{BASE_PATH}/BTech_Dataset_transformed"),
     "MPDD": os.environ.get("AA_CLIP_MPDD_PATH", f"{BASE_PATH}/MPDD"),
     "MVTec": os.environ.get("AA_CLIP_MVTEC_PATH", f"{BASE_PATH}/mvtec_anomaly_detection"),
+    "MVTec2": os.environ.get("AA_CLIP_MVTEC2_PATH", f"{BASE_PATH}/MVTec2"),
     "VisA": os.environ.get("AA_CLIP_VISA_PATH", f"{BASE_PATH}/VisA_20220922"),
 }
 
@@ -74,12 +75,23 @@ CLASS_NAMES = {
         "bracket_black",
     ],
     "BTAD": ["01", "02", "03"],
+    "MVTec2": [
+        "can",
+        "fabric",
+        "fruit_jelly",
+        "rice",
+        "sheet_metal",
+        "vial",
+        "wallplugs",
+        "walnuts",
+    ],
 }
 DOMAINS = {
     "VisA": "Industrial",
     "BTAD": "Industrial",
     "MPDD": "Industrial",
     "MVTec": "Industrial",
+    "MVTec2": "Industrial",
     "Brain": "Medical",
     "Liver": "Medical",
     "Retina": "Medical",
@@ -143,6 +155,16 @@ REAL_NAMES = {
         "01": "Bright concentric rings in neon yellow and blue tones against a dark blue background, resembling a stylized wave or energy field radiating outward.",
         "02": "vertical fabric lines in warm, dusty pink and beige tones",
         "03": "oval concentric circular rings in gradient shades of blue and white",
+    },
+    "MVTec2": {
+        "can": "aluminum beverage can",
+        "fabric": "woven fabric surface",
+        "fruit_jelly": "fruit jelly cup with lid",
+        "rice": "white rice grain",
+        "sheet_metal": "sheet metal surface",
+        "vial": "glass vial",
+        "wallplugs": "plastic wall plug",
+        "walnuts": "walnut",
     },
 }
 PROMPTS = {
